@@ -1,7 +1,6 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,12 +27,21 @@ public class Manager extends Employee {
 		return budget;
 	}
 
+	public void setBudget(int budget) {
+		this.budget = budget;
+	}
+
 	public String getDepartment() {
 		return department;
 	}
 
 	public void setDepartment(String department) {
 		this.department = department;
+	}
+
+	@OneToMany(mappedBy = "manager", fetch = FetchType.LAZY)
+	public List<Employee> getEmployees() {
+		return employees;
 	}
 
 	public void setEmployees(List<Employee> employees) {
