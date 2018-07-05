@@ -1,5 +1,6 @@
 package db;
 
+import models.Administrator;
 import models.Employee;
 import models.Manager;
 import org.hibernate.Criteria;
@@ -12,18 +13,18 @@ import java.util.List;
 public class DBManager {
 	private static Session session;
 
-	public static List<Employee> getEmployeesForManager(Manager manager){
+	public static List<Administrator> getEmployeesForManager(Manager manager){
 		session = HibernateUtil.getSessionFactory().openSession();
-		List<Employee>employeesForManager = null;
+		List<Administrator>adminEmployeesForManager = null;
 		try {
-			Criteria cr = session.createCriteria(Employee.class);
-			cr.add(Restrictions.eq("manager", manager));
-			employeesForManager = cr.list();}
+			Criteria cr = session.createCriteria(Administrator.class);
+			cr.add(Restrictions.eq("adminManager", manager));
+			adminEmployeesForManager = cr.list();}
 			catch (HibernateException e){
 			e.printStackTrace();
 			}finally {
 			session.close();
-		}return employeesForManager;
+		}return adminEmployeesForManager;
 	}
 
 }

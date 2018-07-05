@@ -1,6 +1,9 @@
 import db.DBHelper;
+import db.DBManager;
 import models.Administrator;
 import models.Manager;
+
+import java.util.List;
 
 public class Runner {
 
@@ -11,9 +14,12 @@ public class Runner {
 		Administrator administrator1 = new Administrator("Matt", 5678, 20, manager1);
 		DBHelper.saveOrUpdate(administrator1);
 		Administrator administrator2 = new Administrator("Steve", 8465, 150, manager1);
-		DBHelper.saveOrUpdate(administrator1);
+		DBHelper.saveOrUpdate(administrator2);
 
 		Administrator foundAdmin = DBHelper.find(Administrator.class, administrator1.getId());
+
+		List<Administrator> adminEmployeesForManager = DBManager.getEmployeesForManager(manager1);
+
 
 	}
 }
