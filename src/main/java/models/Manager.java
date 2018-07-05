@@ -8,14 +8,14 @@ import java.util.List;
 @Table(name = "managers")
 public class Manager extends Employee {
 	private int budget;
-	private String department;
+	private Department department;
 	private List<Administrator> AdminEmployees;
 
 	public Manager(){
 
 	}
 
-	public Manager(String name, int NInumber, int salary, int budget, String department) {
+	public Manager(String name, int NInumber, int salary, int budget, Department department) {
 		super(name, NInumber, salary);
 		this.budget = budget;
 		this.department = department;
@@ -31,11 +31,11 @@ public class Manager extends Employee {
 		this.budget = budget;
 	}
 
-	public String getDepartment() {
+	public Department getDepartment() {
 		return department;
 	}
 
-	public void setDepartment(String department) {
+	public void setDepartment(Department department) {
 		this.department = department;
 	}
 
