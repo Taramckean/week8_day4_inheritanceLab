@@ -12,7 +12,7 @@ public abstract class Employee {
 	private int NInumber;
 	private int salary;
 
-	public employee(){
+	public Employee(){
 
 	}
 
