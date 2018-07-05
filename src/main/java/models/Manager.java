@@ -9,7 +9,7 @@ import java.util.List;
 public class Manager extends Employee {
 	private int budget;
 	private String department;
-	private List<Employee> employees;
+	private List<Administrator> AdminEmployees;
 
 	public Manager(){
 
@@ -19,7 +19,7 @@ public class Manager extends Employee {
 		super(name, NInumber, salary);
 		this.budget = budget;
 		this.department = department;
-		this.employees = new ArrayList<Employee>();
+		this.AdminEmployees = new ArrayList<Administrator>();
 	}
 
 
@@ -39,12 +39,12 @@ public class Manager extends Employee {
 		this.department = department;
 	}
 
-	@OneToMany(mappedBy = "manager", fetch = FetchType.LAZY)
-	public List<Employee> getEmployees() {
-		return employees;
+	@OneToMany(mappedBy="adminManager", fetch = FetchType.LAZY)
+	public List<Administrator> getAdminEmployees() {
+		return AdminEmployees;
 	}
 
-	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
+	public void setAdminEmployees(List<Administrator> AdminEmployees) {
+		this.AdminEmployees = AdminEmployees;
 	}
 }

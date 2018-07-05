@@ -1,10 +1,7 @@
 package models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "administrators")
@@ -21,7 +18,7 @@ public class Administrator extends Employee {
 	}
 
 	@ManyToOne
-	@JoinColumn(name ="manager_id", nullable = false)
+	@JoinColumn(name="manager_id", nullable = false)
 	public Manager getAdminManager() {
 		return adminManager;
 	}
