@@ -15,10 +15,9 @@ public class Manager extends Employee {
 
 	}
 
-	public Manager(String name, int NInumber, int salary, int budget, Department department) {
+	public Manager(String name, int NInumber, int salary, int budget) {
 		super(name, NInumber, salary);
 		this.budget = budget;
-		this.department = department;
 		this.AdminEmployees = new ArrayList<Administrator>();
 	}
 
@@ -31,6 +30,8 @@ public class Manager extends Employee {
 		this.budget = budget;
 	}
 
+	@OneToOne
+			(mappedBy = "manager", fetch = FetchType.LAZY)
 	public Department getDepartment() {
 		return department;
 	}
